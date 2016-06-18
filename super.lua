@@ -39,7 +39,7 @@ local function check_member_super(cb_extra, success, result)
       end
       data[tostring(groups)][tostring(msg.to.id)] = msg.to.id
       save_data(_config.moderation.data, data)
-	  local text = 'SuperGroup has been added!'
+	  local text = 'سوپر گروه اضافه شد.🆗'
       return reply_msg(msg.id, text, ok_cb, false)
     end
   end
@@ -183,7 +183,7 @@ local function lock_group_links(msg, data, target)
   else
     data[tostring(target)]['settings']['lock_link'] = 'yes'
     save_data(_config.moderation.data, data)
-    return 'Link posting has been locked'
+    return 'گذاشتن لینک ممنوع شد⛔'
   end
 end
 
@@ -197,7 +197,7 @@ local function unlock_group_links(msg, data, target)
   else
     data[tostring(target)]['settings']['lock_link'] = 'no'
     save_data(_config.moderation.data, data)
-    return 'Link posting has been unlocked'
+    return 'گذاشتن لینک ازاد شد✅'
   end
 end
 
@@ -207,7 +207,7 @@ local function lock_group_all(msg, data, target)
   end
   local group_all_lock = data[tostring(target)]['settings']['all']
   if group_all_lock == 'yes' then
-    return 'all setting is already locked'
+    return 'در وضعیت بالاترین وضعیت امنیتی🔥'
   else
     data[tostring(target)]['settings']['all'] = 'yes'
     save_data(_config.moderation.data, data)
@@ -221,7 +221,7 @@ local function unlock_group_all(msg, data, target)
   end
   local group_all_lock = data[tostring(target)]['settings']['all']
   if group_all_lock == 'no' then
-    return 'all setting is not locked'
+    return 'لغو وضعیت امنیتی بالا🚩'
   else
     data[tostring(target)]['settings']['all'] = 'no'
     save_data(_config.moderation.data, data)
@@ -239,7 +239,7 @@ local function lock_group_etehad(msg, data, target)
   else
     data[tostring(target)]['settings']['etehad'] = 'yes'
     save_data(_config.moderation.data, data)
-    return 'etehad setting has been locked'
+    return 'وضعیت اتحاد فعال شد🔪'
   end
 end
 
@@ -253,7 +253,7 @@ local function unlock_group_etehad(msg, data, target)
   else
     data[tostring(target)]['settings']['etehad'] = 'no'
     save_data(_config.moderation.data, data)
-    return 'etehad setting has been unlocked'
+    return '🔫وضعیت اتحاد غیر فعال شد'
   end
 end
 
